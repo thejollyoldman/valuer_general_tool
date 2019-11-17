@@ -61,17 +61,37 @@ sqlSave(channel = ch,
 # export csv of addresses for QGIS
 # ######################################################################
 
-addresses <- unique(cleansed_table_B %>% 
-                    mutate(state = 'NSW', country = "Australia", street_address = paste(trimws(property_house_number), trimws(property_street_name), sep = " "), full_address = paste(trimws(property_house_number), trimws(property_street_name), trimws(property_locality), trimws(property_post_code), state, country, sep = " ")) %>% 
-                    select(street_address, property_house_number, property_street_name, property_locality, property_post_code, state, country, full_address)
-              )
+# addresses <- unique(cleansed_table_B %>% 
+#                     mutate(state = 'NSW', country = "Australia", street_address = paste(trimws(property_house_number), trimws(property_street_name), sep = " "), full_address = paste(trimws(property_house_number), trimws(property_street_name), trimws(property_locality), trimws(property_post_code), state, country, sep = " ")) %>% 
+#                     select(street_address, property_house_number, property_street_name, property_locality, property_post_code, state, country, full_address)
+#               )
 
-
-write.csv(addresses, file = paste(csv_location, "addresses.csv", sep = "/"))
+# 
+# write.csv(addresses, file = paste(csv_location, "addresses.csv", sep = "/"))
 
 
 # ######################################################################
 # read csv with geocoded addresses into SQL and export another csv for 
 # tableau
 # ######################################################################
+
+# geocoded_addresses <- read.csv(file = paste(csv_location, "", sep = "/"))
+
+# upload table into sql for join
+
+# sqlSave(channel = ch, 
+#         geocoded_addresses, 
+#         tablename = "WRK_GEOCODE", 
+#         append = TRUE,
+#         rownames = FALSE, 
+#         colnames = FALSE, 
+#         verbose = TRUE,
+#         safer = TRUE, 
+#         addPK = FALSE,
+#         varTypes = c(record_type="varchar(255)",
+#                      district_code="varchar(255)"
+#                      ),
+#         fast = TRUE, 
+#         test = FALSE, 
+#         nastring = NULL)
 
