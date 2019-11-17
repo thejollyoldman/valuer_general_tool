@@ -11,7 +11,9 @@
 # 4. Upload clean table into SQL Server
 # ######################################################################
 
-# upload all the data where the  record type is B (first column delimited by ;)
+# ######################################################################
+# upload all the data
+# ######################################################################
 
 dir <- list.files(path = unzip_location, pattern = ".DAT")
 
@@ -35,12 +37,3 @@ for (i in 1:NROW(dir)) {
     
   }
 }
-
-# ######################################################################
-# filter the data down to record type B (which contains the sold price)
-# ######################################################################
-
-glimpse(final_table %>% filter(V1 =="B"))
-
-colnames(final_table[, 1:24]) <- table_header
-  
