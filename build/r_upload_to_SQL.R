@@ -18,7 +18,7 @@
 sqlSave(channel = ch, 
         cleansed_table_B, 
         tablename = "WRK_SALES", 
-        append = "FALSE",
+        append = TRUE,
         rownames = FALSE, 
         colnames = FALSE, 
         verbose = TRUE,
