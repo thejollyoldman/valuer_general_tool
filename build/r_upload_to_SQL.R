@@ -57,6 +57,14 @@ sqlSave(channel = ch,
         nastring = NULL)
 
 
+# ######################################################################
+# export csv of addresses for QGIS
+# ######################################################################
+
+addresses <- unique(cleansed_table_B %>% 
+                    mutate(state = 'NSW', country = "Australia", full_address = paste(trimws(property_house_number), trimws(property_street_name), trimws(property_locality), trimws(property_post_code), state, country, sep = " ")) %>% 
+                    select(property_house_number, property_street_name, property_locality, property_post_code, state, country, full_address)
+              )
 
 
-
+write.csv(addresses, file = paste(csv_location, "addresses.csv", sep = "/"))
