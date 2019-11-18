@@ -11,4 +11,4 @@ where property_locality LIKE '%RYDALMERE%'
 and primary_purpose = 'RESIDENCE'
 and contract_date > '2019-06-01'
 and strata_lot_number is null
-order by area_m2 
+order by contract_date desc 
