@@ -1,7 +1,7 @@
 use dev;
 
 select 
-	REPLACE(property_house_number, ' ', '') + ' ' + property_street_name + ' ' + property_locality	+ ' ' + property_post_code as "Property Address"
+	dbo.ProperCase(REPLACE(property_house_number, ' ', '') + ' ' + property_street_name + ' ' + property_locality) as "Property Address"
 	,contract_date as "Contract Date"
 	,purchase_price as "Purchase Price"
 	,area_m2 as "Area m2"
